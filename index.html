@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"> 
+  <title>Kiosk</title>
+  <meta name="description" content="Kiosk mode webpage">
+  <meta name="author" content="Sean Mayo">
+</head>
+
+<body>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.4.2.min.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function(){   
+       $("#myVideo").bind('ended', function(){
+          location.reload();   
+       }); 
+      });
+    </script>
+	<video id="myVideo" autoplay style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)"src="video.mp4">
+</body>
+</html>
