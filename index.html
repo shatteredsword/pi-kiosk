@@ -14,7 +14,8 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#myVideo").bind('ended', function(){
-				location.reload(true);
+				$("#myVideo")[0].load();
+				//location.reload(true);
 			});
 		});
 	</script>
