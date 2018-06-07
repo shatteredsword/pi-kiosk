@@ -14,7 +14,8 @@
 	<script type="text/javascript">
 		$(document).ready(function(){
 			$("#myVideo").bind('ended', function(){
-				 document.location.href = "index.html?timestamp=" + ((new Date()).getTime();
+				location.href = "index.html?timestamp=" + ((new Date()).getTime();
+				//location.reload(true);
 			});
 		});
 	</script>
