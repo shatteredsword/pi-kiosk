@@ -1,8 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8"> 
-	<title>Kiosk</title>
+	<meta charset="utf-8">
 	<meta name="description" content="Kiosk mode webpage">
 	<meta name="author" content="Sean Mayo">
 </head>
@@ -10,18 +9,12 @@
 	<script src="jquery-3.3.1.min.js">
 	</script>
 	<script type="text/javascript">
-		console.log("waddup")
 		$(document).ready(function(){
 			$("#myVideo").bind('ended', function(){
-				try {
-					location.href = "index.html?timestamp=" + (new Date()).getTime();
-					//location.reload();
-				} catch (e) {
-					console.log(e);
-				}
+				location.href = "index.html?timestamp=" + (new Date()).getTime();
 			});
 		});
 	</script>
-	<video id="myVideo" autoplay style="position:fixed;top:50%;left:50%;transform:translate(-50%,-50%)"src="kiosk/video.mp4">
+	<video id="myVideo" style="position:fixed;right:0;bottom:0;min-width:100%;min-height:100%" autoplay src="kiosk/video.mp4">
 </body>
 </html>
