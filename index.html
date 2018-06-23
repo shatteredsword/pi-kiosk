@@ -1,17 +1,10 @@
 <!doctype html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="description" content="Kiosk mode webpage">
-	<meta name="author" content="Sean Mayo">
-</head>
 <body>
-	<script src="jquery-3.3.1.min.js">
-	</script>
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#myVideo").bind('ended', function(){
-				location.href = "index.html?timestamp=" + (new Date()).getTime();
+	<script src="jquery-3.3.1.min.js"></script>
+	<script>
+		$(function(){
+			$("#myVideo").bind('ended',function(){
+				location.href="index.html?timestamp="+(new Date()).getTime();
 			});
 		});
 	</script>
