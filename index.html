@@ -1,13 +1,1 @@
-<!doctype html>
-<body>
-	<script src="jquery-3.3.1.min.js"></script>
-	<script>
-		$(function(){
-			$("#myVideo").bind('ended',function(){
-				location.href="index.html?timestamp="+(new Date()).getTime();
-			});
-		});
-	</script>
-	<video id="myVideo"style="position:fixed;right:0;bottom:0"src="kiosk/video.mp4"autoplay>
-</body>
-</html>
+<!doctype html><body><script src="jquery-3.3.1.min.js"></script><script>$(function(){$("#a").bind('ended',function(){location.reload()})});</script><video id="a"style="position:fixed;right:0;bottom:0"src="kiosk/video.mp4"autoplay></body></html>
