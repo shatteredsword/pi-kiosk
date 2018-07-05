@@ -5,6 +5,7 @@ sudo adduser --system shareuser
 sudo mkdir -m 1755 /home/pi/pi-kiosk/kiosk
 sudo chown shareuser /home/pi/pi-kiosk/kiosk
 sudo wget -O /home/pi/pi-kiosk/kiosk/video.mp4 https://raw.githubusercontent.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4
+sudo cp /home/pi/pi-kiosk/smb.conf /etc/samba/smb.conf
 sudo /etc/init.d/samba restart
 tee /home/pi/autostart.sh > /dev/null <<EOF
 #!/usr/bin/env bash
