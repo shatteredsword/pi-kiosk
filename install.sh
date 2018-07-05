@@ -9,8 +9,9 @@ sudo /etc/init.d/samba restart
 tee /home/pi/autostart.sh > /dev/null <<EOF
 #!/usr/bin/env bash
 PAGE="file:///home/pi/pi-kiosk/index.html"
-firefox-esr -url $PAGE
+firefox-esr -url \$PAGE
 EOF
+sudo chmod +x /home/pi/autostart.sh
 tee /home/pi/.config/lxsession/LXDE-pi/autostart > /dev/null <<EOF
 @lxpanel --profile LXDE-pi
 @pcmanfm --desktop --profile LXDE-pi
