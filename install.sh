@@ -22,3 +22,5 @@ tee /home/pi/.config/lxsession/LXDE-pi/autostart > /dev/null <<EOF
 @point-rpi
 @bash /home/pi/autostart.sh
 EOF
+sudo cp /home/pi/pi-kiosk/\{d320c473-63c2-47ab-87f8-693b1badb5e3\}.xpi /usr/share/mozilla/extensions/\{ec8030f7-c20a-464f-9b0e-13a3a9e97384\}/
+
