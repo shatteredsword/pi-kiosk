@@ -4,8 +4,8 @@ sudo apt-get -y install firefox-esr samba xscreensaver unclutter omxplayer
 sudo adduser --system shareuser
 sudo mkdir -m 1777 /home/pi/pi-kiosk/kiosk
 sudo chown shareuser /home/pi/pi-kiosk/kiosk
-sudo chmod 777 -R /home/pi/pi-kiosk/kiosk
 sudo wget -O /home/pi/pi-kiosk/kiosk/video.mp4 https://raw.githubusercontent.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4
+sudo chmod 777 -R /home/pi/pi-kiosk/kiosk
 sudo tee /etc/samba/smb.conf > /dev/null <<EOF
 [global]
    workgroup = WORKGROUP
