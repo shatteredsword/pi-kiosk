@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
-sudo apt-get -y update
-sudo apt-get -y install firefox-esr samba xscreensaver unclutter omxplayer
-sudo adduser --system shareuser
-sudo mkdir -m 1777 /home/pi/pi-kiosk/kiosk
-sudo chown shareuser /home/pi/pi-kiosk/kiosk
-sudo wget -O /home/pi/pi-kiosk/kiosk/video.mp4 https://raw.githubusercontent.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4
-sudo chmod 777 -R /home/pi/pi-kiosk/kiosk
-sudo tee /etc/samba/smb.conf > /dev/null <<EOF
+apt-get -y update
+apt-get -y install samba omxplayer
+adduser --system shareuser
+mkdir -m 1777 /home/pi/pi-kiosk/kiosk
+chown shareuser /home/pi/pi-kiosk/kiosk
+wget -O /home/pi/pi-kiosk/kiosk/video.mp4 https://raw.githubusercontent.com/mediaelement/mediaelement-files/master/big_buck_bunny.mp4
+chmod 777 -R /home/pi/pi-kiosk/kiosk
+tee /etc/samba/smb.conf > /dev/null <<EOF
 [global]
    workgroup = WORKGROUP
    dns proxy = no
@@ -54,20 +54,10 @@ sudo tee /etc/samba/smb.conf > /dev/null <<EOF
    directory mask = 777
    force user = shareuser
 EOF
-sudo /etc/init.d/samba restart
-tee /home/pi/autostart.sh > /dev/null <<EOF
-#!/usr/bin/env bash
-PAGE="file:///home/pi/pi-kiosk/index.html"
-firefox-esr -url \$PAGE
-EOF
-sudo chmod +x /home/pi/autostart.sh
-tee /home/pi/.config/lxsession/LXDE-pi/autostart > /dev/null <<EOF
-@lxpanel --profile LXDE-pi
-@pcmanfm --desktop --profile LXDE-pi
-@xset s noblank
-@xset s off
-@xset -dpms
-@point-rpi
-@bash /home/pi/autostart.sh
-EOF
-sudo wget -O "/usr/share/mozilla/extensions/{ec8030f7-c20a-464f-9b0e-13a3a9e97384}/{d320c473-63c2-47ab-87f8-693b1badb5e3}.xpi" "https://addons.mozilla.org/firefox/downloads/file/860622/autofullscreen-1.0.0.1-an+fx.xpi"
+/etc/init.d/samba restart
+cd /home/pi/pi-kiosk
+git clone https://github.com/adafruit/pi_video_looper.git
+cd /home/pi/pi-kiosk/pi_video_looper
+./install.sh
+sed -i 's/^file_reader = usb_drive/file_reader = directory/g' /root/video_looper.ini
+sed -i 's-^path = /home/pi-path = /home/pi/pi-kiosk/kiosk-g' /root/video_looper.ini
