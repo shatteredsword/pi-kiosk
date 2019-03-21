@@ -55,9 +55,3 @@ tee /etc/samba/smb.conf > /dev/null <<EOF
    force user = shareuser
 EOF
 /etc/init.d/samba restart
-cd /home/pi/pi-kiosk
-git clone https://github.com/adafruit/pi_video_looper.git
-cd /home/pi/pi-kiosk/pi_video_looper
-./install.sh
-sed -i 's/^file_reader = usb_drive/file_reader = directory/g' /boot/video_looper.ini
-sed -i 's-^path = /home/pi-path = /home/pi/pi-kiosk/kiosk-g' /boot/video_looper.ini
